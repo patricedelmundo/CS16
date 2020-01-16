@@ -38,17 +38,14 @@ int main()
     y = j;
     cout << "Enter second matrix:\n";
     i = 0;
-    while (true)
-    {
+    while (true){
         getline(cin, matrix_values);
-        if (matrix_values.empty())
-        {
+        if (matrix_values.empty()){
             break;
         }
         stringstream ss(matrix_values);
         j = 0;
-        while (ss >> value)
-        {
+        while (ss >> value){
             mat2[i][j] = value;
             j++;
             if (ss.peek() == ' ')
@@ -58,34 +55,26 @@ int main()
     }
     m = i;
     n = j;
-    if (y == m)
-    {
-        for (i = 0; i < x; i++)
-        {
-            for (j = 0; j < n; j++)
-            {
+    if (y == m){
+        for (i = 0; i < x; i++){
+            for (j = 0; j < n; j++){
                 res[i][j] = 0;
-                for (int k = 0; k < m; k++)
-                {
+                for (int k = 0; k < m; k++){
                     res[i][j] = res[i][j] + (mat1[i][k] * mat2[k][j]);
                 }
             }
         }
         cout << "The product is:\n";
-        for (i = 0; i < x; i++)
-        {
-            for (j = 0; j < n; j++)
-            {
+        for (i = 0; i < x; i++){
+            for (j = 0; j < n; j++){
                 cout << res[i][j];
                 if (j != n-1)
                     cout << " ";
-                
             }
             cout << endl;
         }
     }
-    else
-    {
+    else{
         cout << "The two matrices have incompatible dimensions." << endl;
     }
     system("pause");
