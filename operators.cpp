@@ -18,23 +18,20 @@ using namespace std;
 string filename;
 
 const void correct(ifstream& fin,ofstream& fout);
-int main()
-{
+int main(){
     ifstream fin;
     ofstream fout;
     cout << "Enter filename:\n";
     cin>> filename;
     fin.open( filename);
     
-    if(fin.fail())
-    {
+    if(fin.fail()){
         return 0;
     }
     
     fout.open("correctorig.txt");
     
-    if(fout.fail())
-    {
+    if(fout.fail()){
         return 0;
     }
     
@@ -46,99 +43,75 @@ int main()
     return 0;
 }
 
-const void correct(ifstream& fin,ofstream& fout)
-{
+const void correct(ifstream& fin,ofstream& fout){
     char next;
     fin.get(next);
-    while(!fin.eof())
-    {
-        if(next == 'c')
-        {
+    while(!fin.eof()){
+        if(next == 'c'){
             fin.get(next);
-            if(next == 'i')
-            {
+            if(next == 'i'){
                 fin.get(next);
-                if(next == 'n')
-                {
+                if(next == 'n'){
                     fin >> next;
-                    if(next == '<')
-                    {
+                    if(next == '<'){
                         fin >> next;
-                        if(next == '<')
-                        {
+                        if(next == '<'){
                             fout << "cin >>";
                             fin.get(next);
                         }
-                        else
-                        {
+                        else{
                             fout << "cin >" << next;
                             fin.get(next);
                         }
                     }
-                    else
-                    {
+                    else{
                         fout << "cin " << next;
                         fin.get(next);
                     }
                 }
-                else
-                {
+                else{
                     fout << "ci" << next;
                     fin.get(next);
                 }
             }
-            else if(next == 'o')
-            {
+            else if(next == 'o'){
                 fin.get(next);
-                if(next == 'u')
-                {
+                if(next == 'u'){
                     fin.get(next);
-                    if(next == 't')
-                    {
+                    if(next == 't'){
                         fin >> next;
-                        if(next == '>')
-                        {
+                        if(next == '>'){
                             fin.get(next);
-                            if(next == '>')
-                            {
+                            if(next == '>'){
                                 fout << "cout <<";
                                 fin.get(next);
                             }
-                            else
-                            {
+                            else{
                                 fout << "cout >" << next;
                             }
                         }
-                        else
-                        {
+                        else{
                             fout << "cout " << next;
                             fin.get(next);
                         }
                     }
-                    else
-                    {
+                    else{
                         fout << "cou" << next;
                         fin.get(next);
                     }
                 }
-                else
-                {
+                else{
                     fout << "co" << next;
                     fin.get(next);
                 }
             }
-            else
-            {
+            else{
                 fout << "c" << next;
                 fin.get(next);
-            }
-        }
-        else
-        {
+            }}
+        else{
             fout << next;
             fin.get(next);
-        }
-    }
-}
+        }}}
 
 
